@@ -92,17 +92,17 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
-    "vscode:package": "vsce package",
-    "vscode:install": "code --install-extension chatgpt-vscode-plugin-1.1.10.vsix",
-    "vscode:clean": "del chatgpt-vscode-plugin-1.1.10.vsix",
-    "setup": "npm install",
+    "vscode:prepublish": "$npm_execpath run package",
+    "vscode:package": "$npm_execpath vsce package",
+    "vscode:install": "code --install-extension chatgpt-vscode-plugin-2.0.0.vsix",
+    "vscode:clean": "del chatgpt-vscode-plugin-2.0.0.vsix",
+    "setup": "$npm_execpath install",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "pretest": "$npm_execpath run compile-tests && $npm_execpath run compile && $npm_execpath run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
